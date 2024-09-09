@@ -7,7 +7,7 @@ class Game:
         print(f"How many players will play (2-8)?")
         while True:
             __pl_num = int(input())
-            if 2 <= __pl_num <= 8:
+            if 1 <= __pl_num:
                 break
             else:
                 print("Wrong number")
@@ -16,23 +16,22 @@ class Game:
             name = str(input())
             if name == "stop":
                 raise ValueError
-            self.__players.append(Gamer(name))
+            self.__players.append(Gamer(f"Duck {i+1}"))
 
     def game(self):
         for i in range(len(self.__players)):
             player = self.__players[i]
             print(f"{player.get_name()}, choose your number from 1 to 100")
             while True:
-                n = random.randint(1, 100)
+                n = int(input())
                 if 1 <= n <= 100:
-                    player.set_number(n)
+                    player.set_number(n*2)
                     break
                 else:
                     print("Wrong number")
 
         self.__pl_num = len(self.__players)
         players = self.__players
-        random.shuffle(players)
         self.status = True
         r = 1
         while self.status and len(players) > 1:

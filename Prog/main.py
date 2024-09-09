@@ -5,7 +5,6 @@ if __name__ == '__main__':
     try:
         game.start()
         game.game()
-        game.finish()
     except ValueError:
         print("Closing game... (you did something wrong)")
         exit()
